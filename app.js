@@ -6,7 +6,7 @@ app.get('/', (req, res) => {
     res.send('Hello World! This is second commit')
 })
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
     console.log(`Example app listening on port ${port}`)
 })
 
