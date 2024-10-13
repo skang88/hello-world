@@ -1,5 +1,8 @@
 node {
     try {
+        tools {
+        nodejs 'NodeJS'  // 'Node14'는 위에서 설정한 이름
+        }
         stage('Checkout') {
             echo 'Checking out code...'
             checkout scm
