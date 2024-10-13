@@ -1,34 +1,22 @@
-node {
-    try {
-        tools {
-        nodejs 'NodeJS'  // 'Node14'는 위에서 설정한 이름
+pipeline {
+    agent any
+    tools {
+        nodejs 'NodeJS'  // Jenkins에서 설정한 Nodejs 도구의 이름을 지정
+    }
+    stages {
+        stage('Build') { 
+            steps {
+                sh 'pwd'
+                sh 'ls'
+                sh 'node -v'
+                sh 'npm -v'
+                sh 'npm run build'
+            }
         }
-        stage('Checkout') {
-            echo 'Checking out code...'
-            checkout scm
+        stage('Deliver') {
+            steps {
+                sh 'node app.js'
+            }
         }
-
-        stage('Build') {
-            echo 'Building...'
-            // 예시 빌드 명령어:
-            sh 'npm install'
-        }
-
-        stage('Test') {
-            echo 'Running tests...'
-            // 예시 테스트 명령어:
-            // sh 'make test'
-        }
-
-        stage('Deploy') {
-            echo 'Deploying...'
-            // 예시 배포 명령어:
-            sh 'node app.js'
-        }
-    } catch (Exception e) {
-        echo "Pipeline failed: ${e.getMessage()}"
-        currentBuild.result = 'FAILURE'
-    } finally {
-        echo 'Pipeline finished.'
     }
 }
