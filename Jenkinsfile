@@ -10,7 +10,7 @@ pipeline {
                 sh 'ls'
                 sh 'node -v'
                 sh 'npm -v'
-                sh 'npm run build'
+                sh 'npm install'
             }
         }
         stage('Deliver') {
