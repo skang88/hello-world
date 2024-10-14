@@ -10,7 +10,8 @@ app.get('/', (req, res) => {
         <p>The server is running, and even after the instance stops, it can be restarted smoothly.</p>
         <p>I set up the building triggers using the Poll SCM options.</p>
         <p>This project can idetify the changes of the repository once a day. </p>
-        <p>If this works, I can the changes of this app tomorrow morning. Good luck! </p>
+        <p>If this works, I can the changes of this app tomorrow morning. </p>
+        <p>I click the build button Mistakenly. So hopefully, I will works again. Good luck! </p>
         <p>Current Server Time: ${currentTime}</p>
     `;
     
