@@ -23,15 +23,15 @@ pipeline {
         }
         stage('Stop & Remove Old Container') {
             steps {
-                // 기존 컨테이너 중지 및 제거 (컨테이너 이름은 'node-app-container'로 가정)
-                sh 'docker stop node-app-container || true'
-                sh 'docker rm node-app-container || true'
+                // 기존 컨테이너 중지 및 제거 (컨테이너 이름은 'node-app'로 가정)
+                sh 'docker stop node-app || true'
+                sh 'docker rm node-app || true'
             }
         }
         stage('Run New Container') {
             steps {
                 // 새로 빌드한 이미지를 사용하여 새로운 컨테이너 실행
-                sh 'docker run -d --name node-app-container -p 3000:3000 node-app'
+                sh 'docker run -d --name node-app -p 3000:3000 node-app'
             }
         }
     }
