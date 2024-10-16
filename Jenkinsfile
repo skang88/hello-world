@@ -21,6 +21,7 @@ pipeline {
                 sh 'pwd'
                 sh 'dir'
                 sh 'ls node_modules'
+                sh 'docker ps -a'
             }
         }
 
