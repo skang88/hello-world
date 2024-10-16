@@ -5,7 +5,7 @@ pipeline {
     }
     environment {
         // 환경변수 PORT 정의 (필요에 따라 변경 가능)
-        PORT = "${hello-world-port}"
+        PORT = '5000'
     }
     stages {
         stage('Checkout') {
