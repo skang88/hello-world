@@ -4,9 +4,6 @@ const port = 3000
 
 require('dotenv').config();
 
-console.log(process.env.DB_ENGINE);
-
-
 app.get('/', (req, res) => {
     const currentTime = new Date().toLocaleString();  // 현재 시간 추가
     const message = `
