@@ -40,6 +40,7 @@ pipeline {
         stage('Run New Container') {
             steps {
                 // 새로 빌드한 이미지를 사용하여 새로운 컨테이너 실행
+                // 호스트 PC의 c:/env/.env 파일을 컨테이너 내부로 전달하여 .env 파일 사용할 수 있음.
                 sh 'docker run -d --name node-app -p ${PORT}:3000 -v C:/env/.env:/usr/src/app/.env node-app'
             }
         }
