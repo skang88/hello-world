@@ -16,7 +16,6 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 echo 'environment variable is'
-                echo '$PORT'
                 sh 'npm install'
             }
         }
