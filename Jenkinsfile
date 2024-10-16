@@ -20,7 +20,7 @@ pipeline {
             steps {
                 sh 'pwd'
                 sh 'dir'
-                sh 'ls /node_modules'
+                sh 'ls node_modules'
             }
         }
 
