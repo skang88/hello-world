@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    environment {
-        PORT = credentials('hello-world-port')
-    }
     tools {
         nodejs 'NodeJs'
     }
