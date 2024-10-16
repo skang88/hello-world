@@ -8,7 +8,6 @@ pipeline {
         // Jenkins 관리 -> Security -> Credentials 에서 수정
         // 노출되지 않음. 
         PORT = credentials('PORT')
-        DB_ENGINE = 'MS-SQL'
     }
     stages {
         stage('Checkout') {
@@ -20,6 +19,8 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh 'npm install'
+                sh 'pwd'
+                sh 'dir'
             }
         }
 
@@ -38,7 +39,7 @@ pipeline {
         stage('Run New Container') {
             steps {
                 // 새로 빌드한 이미지를 사용하여 새로운 컨테이너 실행
-                sh 'docker run -d --name node-app -e DB_ENGINE = ${DB_ENGINE} -p ${PORT}:3000 node-app'
+                sh 'docker run -d --name node-app -p ${PORT}:3000 node-app'
             }
         }
     }
