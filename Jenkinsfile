@@ -16,9 +16,8 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
+        stage('No Install Dependencies') {
             steps {
-                sh 'npm install'
                 sh 'pwd'
                 sh 'dir'
             }
