@@ -15,6 +15,8 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
+                echo 'environment variable is'
+                echo '$PORT'
                 sh 'npm install'
             }
         }
@@ -34,7 +36,7 @@ pipeline {
         stage('Run New Container') {
             steps {
                 // 새로 빌드한 이미지를 사용하여 새로운 컨테이너 실행
-                sh 'docker run -d --name node-app -p $PORT:3000 node-app'
+                sh 'docker run -d --name node-app -p 3000:3000 node-app'
             }
         }
     }
