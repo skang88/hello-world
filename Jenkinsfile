@@ -20,6 +20,7 @@ pipeline {
             steps {
                 sh 'pwd'
                 sh 'dir'
+                // Jenkins에서 Docker 명령어를 쓰려면 Jenkins 내부에 Docker를 설치하여야 함. (별도 설정)
                 sh 'docker ps -a'
                 echo '${WORKSPACE}'
             }
