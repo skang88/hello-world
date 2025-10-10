@@ -7,7 +7,8 @@ pipeline {
         // 환경변수 PORT 정의 (필요에 따라 변경 가능)
         // Jenkins 관리 -> Security -> Credentials 에서 수정
         // 노출되지 않음. 
-        PORT = credentials('PORT')
+        // PORT = credentials('PORT')
+        PORT = '3000'
     }
     stages {
         stage('Checkout') {

@@ -20,7 +20,7 @@ try {
 
 app.get('/', (req, res) => {
     const currentTime = new Date().toLocaleString();
-    const dbEngine = process.env.DB_ENGINE || 'not set';
+    const dbEngine = process.env.DB_ENGINE || 'not set in .env';
 
     // Replace placeholders in the cached template.
     // Using a global regex (/g) ensures all occurrences are replaced.
