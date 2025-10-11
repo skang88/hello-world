@@ -8,7 +8,7 @@ pipeline {
         // Jenkins 관리 -> Security -> Credentials 에서 수정
         // 노출되지 않음. 
         // PORT = credentials('PORT')
-        PORT = '80'
+        PORT = '3000'
     }
     stages {
         stage('Checkout') {
